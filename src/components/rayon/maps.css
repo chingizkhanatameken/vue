@@ -1,0 +1,54 @@
+
+svg {height: 50%;
+	width: 50%; 
+	position: relative;
+	top: 0;
+	left: 0
+}
+path, ellipse{
+	fill: #004a7a;
+	stroke: #FFFFFF;
+	transition: fill 0.3s ;
+}
+path:hover {
+	fill:#0091EA;
+}
+ellipse:hover{
+	fill:#0091EA;
+}
+h1{
+	padding-top: 45px;
+	font-family: "Helvetica";
+}
+.classic1 {
+	background-color: white;
+  border: thin #808080;
+  border-radius: 4px;
+  display: inline-block;
+  
+
+  font: inherit;
+  line-height: 1.5em;
+  width: 15.2%;
+  padding: 0.5em 3.5em 0.5em 1em;
+  border-color: black;
+    border-style: solid;
+
+  /* reset */
+
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.single-company {
+	padding: 20px;
+	margin:20px 0;
+	box-sizing: border-box;
+	width: 50%;
+	font-family: "Helvetica Neue";
+	box-shadow: 0 0 10px rgba(0,0,0,.68);
+	left:50%;
+}
