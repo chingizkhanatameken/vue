@@ -168,12 +168,14 @@
 <br>
     <input type="search" v-model="nameSearch" placeholder="Название"  v-on:change.prevent.self="handleSubmit();" class="classic1" /> 
     <input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
+<input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
 
 <div v-for="company in addresses" class="single-company"> 
             <h2>Название:{{company.name}}</h2>
             <h3>Регион:  {{company.region}}</h3>
             <h4>БИН:  {{company.bin}}</h4>
             <h4>Отрасль:  {{company.otrasl}}</h4>
+            <h4>Продукция:  {{company.production}}</h4>
             <h4>Aдрес:  {{company.address}}</h4>
             <h4>Почта:  {{company.mail}}</h4>
             <h4>Телефон:  {{company.phone}}</h4>
@@ -205,7 +207,8 @@ svg{
         addresses:[],
         addressSearch:'',
         otraslSearch:'',
-        nameSearch:''
+        nameSearch:'',
+        productionSearch:''
 
 
       }
@@ -223,90 +226,107 @@ svg{
       this.addressSearch = "1301"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress1302() {
       this.addressSearch = "1302"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress1303() {
       this.addressSearch = "1303"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,fetchAddress1304() {
       this.addressSearch = "1304"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1305() {
       this.addressSearch = "1305"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1306() {
       this.addressSearch = "1306"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1307() {
       this.addressSearch = "1307"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1308() {
       this.addressSearch = "1308"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1309() {
       this.addressSearch = "1309"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1310() {
       this.addressSearch = "1310"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1311() {
       this.addressSearch = "1311"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1312() {
       this.addressSearch = "1312"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1313() {
       this.addressSearch = "1313"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1314() {
       this.addressSearch = "1314"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1315() {
       this.addressSearch = "1315"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress1316() {
       this.addressSearch = "1316"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       
      handleSubmit() {
                    console.log(this.addressSearch + "-----------------------------------------")
                               
-                  this.$http.get("http://78.40.108.19:8080/blog-0.0.1-SNAPSHOT/company/filter", {params:  {
+                  this.$http.get("http://localhost:8085/company/filter", {params:  {
                         regionID: "13",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
-                        otrasl: this.otraslSearch
+                        otrasl: this.otraslSearch,
+                        production: this.productionSearch
 
 
 

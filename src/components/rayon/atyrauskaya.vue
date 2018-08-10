@@ -85,12 +85,14 @@
   <br>
     <input type="search" v-model="nameSearch" placeholder="Название"  v-on:change.prevent.self="handleSubmit();" class="classic1" /> 
     <input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
+     <input type="search" v-model="productionSearch" placeholder="Отрасль"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
     
   <div v-for="company in addresses" class="single-company"> 
     <h2>Название:{{company.name}}</h2>
     <h3>Регион:  {{company.region}}</h3>
     <h4>БИН:  {{company.bin}}</h4>
     <h4>Отрасль:  {{company.otrasl}}</h4>
+    <h4>Продукция:  {{company.production}}</h4>
     <h4>Aдрес:  {{company.address}}</h4>
     <h4>Почта:  {{company.mail}}</h4>
     <h4>Телефон:  {{company.phone}}</h4>
@@ -115,7 +117,8 @@
         addresses:[],
         addressSearch:'',
         otraslSearch:'',
-        nameSearch:''
+        nameSearch:'',
+        productionSearch:''
 
 
       }
@@ -133,51 +136,60 @@
       this.addressSearch = "0601"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0602() {
       this.addressSearch = "0602"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0603() {
       this.addressSearch = "0603"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,fetchAddress0604() {
       this.addressSearch = "0604"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0605() {
       this.addressSearch = "0605"
       this.nameSearch = ""
+      this.productionSearch = ""
       this.otraslSearch = ""
     }  ,
       fetchAddress0606() {
       this.addressSearch = "0606"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0607() {
       this.addressSearch = "0607"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0608() {
       this.addressSearch = "0608"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       
       
      handleSubmit() {
                    console.log(this.addressSearch + "-----------------------------------------")
                               
-                  this.$http.get("http://78.40.108.19:8080/blog-0.0.1-SNAPSHOT/company/filter", {params:  {
+                  this.$http.get("http://localhost:8085/company/filter", {params:  {
                         regionID: "06",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
-                        otrasl: this.otraslSearch
+                        otrasl: this.otraslSearch,
+                        production: this.productionSearch
 
 
 

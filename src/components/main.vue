@@ -208,12 +208,15 @@
           </select> 
           <input type="search" v-model="nameSearch" placeholder="Название"  v-on:change="handleSubmit();" class="classic1" /> 
           <input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change="handleSubmit();" class="classic1" />
+          
+          <input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change="handleSubmit();" class="classic1" />
           </v-flex>
           <div v-for="company in searched" class="single-company"> 
             <h2>Название:{{company.name}}</h2>
             <h3>Регион:  {{company.region}}</h3>
             <h4>БИН:  {{company.bin}}</h4>
             <h4>Отрасль:  {{company.otrasl}}</h4>
+            <h4>Продукция:  {{company.product}}</h4>
             <h4>Aдрес:  {{company.address}}</h4>
             <h4>Почта:  {{company.mail}}</h4>
             <h4>Телефон:  {{company.phone}}</h4>
@@ -252,7 +255,7 @@
   display: inline-block;
   font: inherit;
   line-height: 1.5em;
-  width: 24.2%;
+  width: 19.2%;
   padding: 0.5em 3.5em 0.5em 1em;
   border-color: black;
     border-style: solid;
@@ -274,7 +277,7 @@ select {
   border-radius: 4px;
   display: inline-block;
   font: inherit;
-  width: 24%;
+  width: 19%;
   line-height: 1.5em;
   padding: 0.5em 3.5em 0.5em 1em;
   border-color: black;
@@ -347,7 +350,8 @@ select.classic {
         addressSearch:'',
                 otraslSearch:'',
                 nameSearch:'',
-                searched: []
+                searched: [],
+                productionSearch:''
 
       }
 
@@ -363,14 +367,14 @@ select.classic {
             
             
       fetchCompany() {
-        let api = "http://78.40.108.19:8080/blog-0.0.1-SNAPSHOT/companies"
+        let api = "http://localhost:8085/companies"
         this.$http.get(api).then(function(data){
           console.log(data)
           this.companies = data.body
         })
       },
       fetchRegion() {
-        let api = "http://78.40.108.19:8080/blog-0.0.1-SNAPSHOT/company/regions"
+        let api = "http://localhost:8085/company/regions"
         this.$http.get(api).then(function(data){
           console.log(data)
           this.regions = data.body
@@ -378,11 +382,12 @@ select.classic {
                     this.addresses = ''
                     this.nameSearch = ''
                     this.otraslSearch = ''
+                    this.productionSearch = ''
         
         })
       },
       fetchAddress() {
-        let api = "http://78.40.108.19:8080/blog-0.0.1-SNAPSHOT/address/filter/" + this.regionSearch2 
+        let api = "http://localhost:8085/address/filter/" + this.regionSearch2 
           
           
         this.$http.get(api).then(function(data){
@@ -393,11 +398,12 @@ select.classic {
         handleSubmit() {
            console.log(this.addressSearch + "-----------------------------------------")
           
-          this.$http.get("http://78.40.108.19:8080/blog-0.0.1-SNAPSHOT/company/filter", {params:  {
+          this.$http.get("http://localhost:8085/company/filter", {params:  {
             regionID: this.regionSearch2,
             addressID: this.addressSearch,
             name: this.nameSearch,
-            otrasl: this.otraslSearch
+            otrasl: this.otraslSearch,
+            production: this.productionSearch
 
 
 

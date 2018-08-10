@@ -169,12 +169,14 @@ id="0518" v-on:click.prevent.self = "fetchAddress0518"
 <br>
     <input type="search" v-model="nameSearch" placeholder="Название"  v-on:change.prevent.self="handleSubmit();" class="classic1" /> 
     <input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
+     <input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
 
 <div v-for="company in addresses" class="single-company"> 
   <h2>Название:{{company.name}}</h2>
   <h3>Регион:  {{company.region}}</h3>
   <h4>БИН:  {{company.bin}}</h4>
   <h4>Отрасль:  {{company.otrasl}}</h4>
+  <h4>Продукция:  {{company.production}}</h4>
   <h4>Aдрес:  {{company.address}}</h4>
   <h4>Почта:  {{company.mail}}</h4>
   <h4>Телефон:  {{company.phone}}</h4>
@@ -201,7 +203,8 @@ id="0518" v-on:click.prevent.self = "fetchAddress0518"
         addressSearch:'',
         otraslSearch:'',
         nameSearch:'',
-        searched: []
+        searched: [],
+        productionSearch:''
 
 
       }
@@ -219,106 +222,126 @@ id="0518" v-on:click.prevent.self = "fetchAddress0518"
       this.addressSearch = "0501"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0502() {
       this.addressSearch = "0502"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0503() {
       this.addressSearch = "0503"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,fetchAddress0504() {
       this.addressSearch = "0504"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0505() {
       this.addressSearch = "0505"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0506() {
       this.addressSearch = "0506"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0507() {
       this.addressSearch = "0507"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0508() {
       this.addressSearch = "0508"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0509() {
       this.addressSearch = "0509"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0510() {
       this.addressSearch = "0510"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0511() {
       this.addressSearch = "0511"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0512() {
       this.addressSearch = "0512"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0513() {
       this.addressSearch = "0513"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0514() {
       this.addressSearch = "0514"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0515() {
       this.addressSearch = "0515"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0516() {
       this.addressSearch = "0516"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0517() {
       this.addressSearch = "0517"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0518() {
       this.addressSearch = "0518"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0519() {
       this.addressSearch = "0519"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       
      handleSubmit() {
                    console.log(this.addressSearch + "-----------------------------------------")
                               
-                  this.$http.get("http://78.40.108.19:8080/blog-0.0.1-SNAPSHOT/company/filter", {params:  {
+                  this.$http.get("http://localhost:8085/company/filter", {params:  {
                         regionID: "05",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
-                        otrasl: this.otraslSearch
-
+                        otrasl: this.otraslSearch,
+                        production: this.productionSearch
+                               
 
 
 
