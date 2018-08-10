@@ -23,7 +23,7 @@
 					<input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change="handleSubmit();" class="classic1" />
 					</v-flex>
 					<div v-for="company in searched" class="single-company"> 
-						<h2>Название:{{company.name}}</h2>
+						<h2>Названиве:{{company.name}}</h2>
 						<h3>Регион:  {{company.region}}</h3>
 						<h4>БИН:  {{company.bin}}</h4>
 						<h4>Отрасль:  {{company.otrasl}}</h4>
@@ -109,7 +109,7 @@
 		    		addressID: this.addressSearch,
 		    		name: this.nameSearch,
 		    		otrasl: this.otraslSearch,
-		    		production : this.productionSearch
+		    		production : this.productionSearch  
 
 
 
