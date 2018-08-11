@@ -367,14 +367,14 @@ select.classic {
             
             
       fetchCompany() {
-        let api = "http://localhost:8085/companies"
+        let api = "http://78.40.108.19:8085/companies"
         this.$http.get(api).then(function(data){
           console.log(data)
           this.companies = data.body
         })
       },
       fetchRegion() {
-        let api = "http://localhost:8085/company/regions"
+        let api = "http://78.40.108.19:8085/company/regions"
         this.$http.get(api).then(function(data){
           console.log(data)
           this.regions = data.body
@@ -387,7 +387,7 @@ select.classic {
         })
       },
       fetchAddress() {
-        let api = "http://localhost:8085/address/filter/" + this.regionSearch2 
+        let api = "http://78.40.108.19:8085/address/filter/" + this.regionSearch2 
           
           
         this.$http.get(api).then(function(data){
@@ -398,7 +398,7 @@ select.classic {
         handleSubmit() {
            console.log(this.addressSearch + "-----------------------------------------")
           
-          this.$http.get("http://localhost:8085/company/filter", {params:  {
+          this.$http.get("http://78.40.108.19:8085/company/filter", {params:  {
             regionID: this.regionSearch2,
             addressID: this.addressSearch,
             name: this.nameSearch,

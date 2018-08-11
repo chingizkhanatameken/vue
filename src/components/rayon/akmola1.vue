@@ -291,7 +291,7 @@
      handleSubmit() {
                    console.log(this.addressSearch + "-----------------------------------------")
                               
-                  this.$http.get("http://localhost:8085/company/filter", {params:  {
+                  this.$http.get("http://78.40.108.19:8085/company/filter", {params:  {
                         regionID: "03",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
