@@ -84,11 +84,13 @@
 <br>
     <input type="search" v-model="nameSearch" placeholder="Название"  v-on:change.prevent.self="handleSubmit();" class="classic1" /> 
     <input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
+    <input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
 <div v-for="company in addresses" class="single-company"> 
   <h2>Название:{{company.name}}</h2>
   <h3>Регион:  {{company.region}}</h3>
   <h4>БИН:  {{company.bin}}</h4>
   <h4>Отрасль:  {{company.otrasl}}</h4>
+  <h4>Продукция:  {{company.production}}</h4>
   <h4>Aдрес:  {{company.address}}</h4>
   <h4>Почта:  {{company.mail}}</h4>
   <h4>Телефон:  {{company.phone}}</h4>
@@ -114,6 +116,7 @@
         addressSearch:'',
         otraslSearch:'',
         nameSearch:'',
+        productionSearch:'',
         
 
 
@@ -132,40 +135,48 @@
       this.addressSearch = "0201"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0202() {
       this.addressSearch = "0202"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0203() {
       this.addressSearch = "0203"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,fetchAddress0204() {
       this.addressSearch = "0204"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0205() {
       this.addressSearch = "0205"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0206() {
       this.addressSearch = "0206"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0207() {
       this.addressSearch = "0207"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0208() {
       this.addressSearch = "0208"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     },
       
      handleSubmit() {
@@ -175,7 +186,8 @@
                         regionID: "02",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
-                        otrasl: this.otraslSearch
+                        otrasl: this.otraslSearch,
+                        production: this.productionSearch
 
 
 

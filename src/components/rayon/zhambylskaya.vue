@@ -100,11 +100,13 @@
 </svg><br>
     <input type="search" v-model="nameSearch" placeholder="Название"  v-on:change.prevent.self="handleSubmit();" class="classic1" /> 
     <input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
+    <input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
 <div v-for="company in addresses" class="single-company"> 
             <h2>Название:{{company.name}}</h2>
             <h3>Регион:  {{company.region}}</h3>
             <h4>БИН:  {{company.bin}}</h4>
             <h4>Отрасль:  {{company.otrasl}}</h4>
+            <h4>Продукция:  {{company.production}}</h4>
             <h4>Aдрес:  {{company.address}}</h4>
             <h4>Почта:  {{company.mail}}</h4>
             <h4>Телефон:  {{company.phone}}</h4>
@@ -129,7 +131,8 @@
         addresses:[],
         addressSearch:'',
         otraslSearch:'',
-        nameSearch:''
+        nameSearch:'',
+        productionSearch:''
 
 
       }
@@ -147,55 +150,66 @@
       this.addressSearch = "0801"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0802() {
       this.addressSearch = "0802"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0803() {
       this.addressSearch = "0803"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,fetchAddress0804() {
       this.addressSearch = "0804"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0805() {
       this.addressSearch = "0805"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0806() {
       this.addressSearch = "0806"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0807() {
       this.addressSearch = "0807"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0808() {
       this.addressSearch = "0808"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0809() {
       this.addressSearch = "0809"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0810() {
       this.addressSearch = "0810"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0811() {
       this.addressSearch = "0811"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       
      handleSubmit() {
@@ -205,7 +219,8 @@
                         regionID: "08",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
-                        otrasl: this.otraslSearch
+                        otrasl: this.otraslSearch,
+                        production: this.productionSearch
 
 
 

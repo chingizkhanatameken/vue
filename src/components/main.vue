@@ -251,12 +251,12 @@
     .classic1 {
   background-color: white;
   border: thin #808080;
-  border-radius: 4px;
+  border-radius: 4%;
   display: inline-block;
   font: inherit;
-  line-height: 1.5em;
+  line-height: 155%;
   width: 19.2%;
-  padding: 0.5em 3.5em 0.5em 1em;
+  padding: 0.5% 3.5% 0.5% 1%;
   border-color: black;
     border-style: solid;
 
@@ -274,12 +274,12 @@ select {
   /* styling */
   background-color: white;
   border: thin #808080;
-  border-radius: 4px;
+  border-radius: 4%;
   display: inline-block;
   font: inherit;
   width: 19%;
-  line-height: 1.5em;
-  padding: 0.5em 3.5em 0.5em 1em;
+  line-height: 155%;
+  padding: 0.5% 3.5% 0.5% 1%;
   border-color: black;
     border-style: solid;
 

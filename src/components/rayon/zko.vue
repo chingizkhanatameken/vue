@@ -168,61 +168,72 @@
       this.addressSearch = "0702"
       this.nameSearch = ""
       this.otraslSearch = ""
-      this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
     fetchAddress0703() {
       this.addressSearch = "0703"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,fetchAddress0704() {
       this.addressSearch = "0704"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0705() {
       this.addressSearch = "0705"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0706() {
       this.addressSearch = "0706"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0707() {
       this.addressSearch = "0707"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0708() {
       this.addressSearch = "0708"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0709() {
       this.addressSearch = "0709"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0710() {
       this.addressSearch = "0710"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0711() {
       this.addressSearch = "0711"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0712() {
       this.addressSearch = "0712"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       fetchAddress0713() {
       this.addressSearch = "0713"
       this.nameSearch = ""
       this.otraslSearch = ""
+      this.productionSearch = ""
     }  ,
       
      handleSubmit() {
@@ -232,7 +243,8 @@
                         regionID: "07",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
-                        otrasl: this.otraslSearch
+                        otrasl: this.otraslSearch,
+                        production: this.productionSearch
 
 
 
