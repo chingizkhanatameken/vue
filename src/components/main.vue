@@ -205,28 +205,57 @@
           <select :disabled="regionSearch2.length == 0" v-model='addressSearch' v-on:change="handleSubmit();" class="classic">
                         <option value="" selected="selected">Район</option>
             <option v-for="address in addresses" v-bind:value="address.id" >{{address.region}}</option>
+          </select>
+           <select  v-model='otraslSearch' v-on:change="handleSubmit();" class="classic">
+                        <option value="" selected="selected">Отрасль</option>
+            <option v-for="otrasl in otrasles"  >{{otrasl.otrasl}}</option>
           </select> 
           <input type="search" v-model="nameSearch" placeholder="Название"  v-on:change="handleSubmit();" class="classic1" /> 
-          <input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change="handleSubmit();" class="classic1" />
           
           <input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change="handleSubmit();" class="classic1" />
           </v-flex>
-          <div v-for="company in searched" class="single-company"> 
-            <h2>Название:{{company.name}}</h2>
-            <h3>Регион:  {{company.region}}</h3>
-            <h4>БИН:  {{company.bin}}</h4>
-            <h4>Отрасль:  {{company.otrasl}}</h4>
-            <h4>Продукция:  {{company.product}}</h4>
-            <h4>Aдрес:  {{company.address}}</h4>
-            <h4>Почта:  {{company.mail}}</h4>
-            <h4>Телефон:  {{company.phone}}</h4>
-          </div>
+          <br><br>
+          <table class="fixed">
+            <col width="10%" />
+    <col width="10%" />
+    <col width="10%" />
+<col width="10%" />
+    <col width="10%" />
+    <col width="10%" />
+    <col width="10%" />
+    <col width="10%" />
+    
+  <tr>
+    <th>Название</th>
+    <th>Регион</th> 
+    <th>БИН</th>
+    <th>Отрасль</th>
+    <th>Продукция</th>
+    <th>Адрес</th>
+    <th>Почта</th>
+    <th>Телефон</th>
+  </tr>
+  <tr v-for="company in searched" class="single-company"> 
+  
+    <td>{{company.name}}</td>
+    <td>{{company.region}}</td>
+    <td>{{company.bin}}</td>
+    <td>{{company.otrasl}}</td>
+    <td>{{company.production}}</td>
+    <td>{{company.address}}</td>
+    <td>{{company.mail}}</td>
+    <td>{{company.phone}}</td>
+  </tr>
+
+  
+</table>
+          
         </div>
 </html>
 </template>
 
 <style >
-
+    
     svg {height: 70%;
     width: 70%; 
     padding-top: 20px;
@@ -318,12 +347,11 @@ select.classic {
   margin:0 auto;
 }
 .single-company {
-  padding: 20px;
-  margin:20px 0;
+  
   box-sizing: border-box;
-  width: 100%;
+  /*width: 200%;*/
   font-family: "Helvetica Neue";
-  box-shadow: 0 0 10px rgba(0,0,0,.68);
+  
   left:50%;
 }
 .h1x1 {
@@ -332,6 +360,12 @@ select.classic {
   padding-top: 40px;
   padding-bottom: 40px;
 }
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+table.fixed { table-layout:fixed; }
+table.fixed td { overflow: hidden; }
   </style>
 
   <script>
@@ -346,6 +380,7 @@ select.classic {
         companies:[],
         regions:[],
         addresses:[],
+        otrasles:[],
         regionSearch2:'',
         addressSearch:'',
                 otraslSearch:'',
@@ -360,6 +395,8 @@ select.classic {
     created() {
       this.fetchCompany();
       this.fetchRegion();
+      this.fetchOtrasl();
+      this.handleSubmit();
       /*this.fetchAddress();*/
       
     },
@@ -367,27 +404,37 @@ select.classic {
             
             
       fetchCompany() {
-        let api = "http://78.40.108.19:8085/companies"
+        let api = "http://localhost:8085/companies"
         this.$http.get(api).then(function(data){
           console.log(data)
           this.companies = data.body
         })
       },
       fetchRegion() {
-        let api = "http://78.40.108.19:8085/company/regions"
+        let api = "http://localhost:8085/company/regions"
         this.$http.get(api).then(function(data){
           console.log(data)
           this.regions = data.body
           this.addressSearch = ''
                     this.addresses = ''
+                    this.otrasles = ''
                     this.nameSearch = ''
                     this.otraslSearch = ''
                     this.productionSearch = ''
         
         })
       },
+      fetchOtrasl() {
+        let api = "http://localhost:8085/company/otrasles"
+        this.$http.get(api).then(function(data){
+          console.log(data)
+          this.otrasles = data.body
+          
+        
+        })
+      },
       fetchAddress() {
-        let api = "http://78.40.108.19:8085/address/filter/" + this.regionSearch2 
+        let api = "http://localhost:8085/address/filter/" + this.regionSearch2 
           
           
         this.$http.get(api).then(function(data){
@@ -398,7 +445,7 @@ select.classic {
         handleSubmit() {
            console.log(this.addressSearch + "-----------------------------------------")
           
-          this.$http.get("http://78.40.108.19:8085/company/filter", {params:  {
+          this.$http.get("http://localhost:8085/company/filter", {params:  {
             regionID: this.regionSearch2,
             addressID: this.addressSearch,
             name: this.nameSearch,

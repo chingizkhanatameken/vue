@@ -43,6 +43,50 @@ h1{
   -webkit-appearance: none;
   -moz-appearance: none;
 }
+
+select {
+
+  /* styling */
+  background-color: white;
+  border: thin #808080;
+  border-radius: 4%;
+  display: inline-block;
+  font: inherit;
+  width: 15.2%;
+  line-height: 155%;
+  padding: 0.5% 3.5% 0.5% 1%;
+  border-color: black;
+    border-style: solid;
+
+  /* reset */
+
+  margin: 0;      
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+
+/* arrows */
+
+select.classic {
+  background-image:
+    linear-gradient(45deg, transparent 50%, black 50%),
+    linear-gradient(135deg, black 50%, transparent 50%),
+    linear-gradient(to right, #808080, #808080);
+  background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    100% 0;
+  background-size:
+    5px 5px,
+    5px 5px,
+    2.5em 2.5em;
+  background-repeat: no-repeat;
+}
+
 .single-company {
 	padding: 20px;
 	margin:20px 0;

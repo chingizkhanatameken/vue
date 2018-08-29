@@ -17,13 +17,17 @@
 					<select :disabled="regionSearch2.length == 0" v-model='addressSearch' v-on:change="handleSubmit();" class="classic">
                         <option value="" selected="selected">Район</option>
 						<option v-for="address in addresses" v-bind:value="address.id" >{{address.region}}</option>
+					</select>
+					<select  v-model='otraslSearch' v-on:change="handleSubmit();" class="classic">
+                        <option value="" selected="selected">Отрасль</option>
+						<option v-for="otrasl in otrasles" >{{otrasl.otrasl}}</option>
 					</select>	
 					<input type="search" v-model="nameSearch" placeholder="Название"  v-on:change="handleSubmit();" class="classic1" />	
-					<input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change="handleSubmit();" class="classic1" />
+					
 					<input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change="handleSubmit();" class="classic1" />
 					</v-flex>
 					<div v-for="company in searched" class="single-company"> 
-						<h2>Названиве:{{company.name}}</h2>
+						<h2>Название:{{company.name}}</h2>
 						<h3>Регион:  {{company.region}}</h3>
 						<h4>БИН:  {{company.bin}}</h4>
 						<h4>Отрасль:  {{company.otrasl}}</h4>
@@ -54,6 +58,7 @@
 				addresses:[],
 				regionSearch2:'',
 				addressSearch:'',
+				otrasles:[],
                 otraslSearch:'',
                 nameSearch:'',
                 searched:[],
@@ -66,6 +71,8 @@
 		created() {
 			this.fetchCompany();
 			this.fetchRegion();
+			this.fetchOtrasl();
+			this.handleSubmit();
 			/*this.fetchAddress();*/
 			
 		},
@@ -73,14 +80,14 @@
             
             
 			fetchCompany() {
-				let api = "http://78.40.108.19:8085/companies"
+				let api = "http://localhost:8085/companies"
 				this.$http.get(api).then(function(data){
 					console.log(data)
 					this.companies = data.body
 				})
 			},
 			fetchRegion() {
-				let api = "http://78.40.108.19:8085/company/regions"
+				let api = "http://localhost:8085/company/regions"
 				this.$http.get(api).then(function(data){
 					console.log(data)
 					this.regions = data.body
@@ -88,12 +95,21 @@
                     this.addresses = ''
                     this.nameSearch = ''
                     this.otraslSearch = ''
+                    this.otrasles = ''
                     this.productionSearch = ''
         
 				})
 			},
+			fetchOtrasl() {
+				let api = "http://localhost:8085/company/otrasles"
+				this.$http.get(api).then(function(data){
+					console.log(data)
+					this.otrasles = data.body
+					
+				})
+			},
 			fetchAddress() {
-				let api = "http://78.40.108.19:8085/address/filter/" + this.regionSearch2 
+				let api = "http://localhost:8085/address/filter/" + this.regionSearch2 
 			    
 			    
 				this.$http.get(api).then(function(data){
@@ -104,7 +120,7 @@
 		    handleSubmit() {
 		    	 console.log(this.addressSearch + "-----------------------------------------")
 					
-		    	this.$http.get("http://78.40.108.19:8085/company/filter", {params:  {
+		    	this.$http.get("http://localhost:8085/company/filter", {params:  {
 		    		regionID: this.regionSearch2,
 		    		addressID: this.addressSearch,
 		    		name: this.nameSearch,

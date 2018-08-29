@@ -167,8 +167,12 @@ id="0518" v-on:click.prevent.self = "fetchAddress0518"
 ><title>Талгарский район</title></path>
 </svg>
 <br>
+    <select  v-model='otraslSearch' v-on:change="handleSubmit();" class="classic">
+                        <option value="" selected="selected">Отрасль</option>
+            <option v-for="otrasl in otrasles"  >{{otrasl.otrasl}}</option>
+          </select>
     <input type="search" v-model="nameSearch" placeholder="Название"  v-on:change.prevent.self="handleSubmit();" class="classic1" /> 
-    <input type="search" v-model="otraslSearch" placeholder="Отрасль"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
+    
      <input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
 
 <div v-for="company in addresses" class="single-company"> 
@@ -204,15 +208,15 @@ id="0518" v-on:click.prevent.self = "fetchAddress0518"
         otraslSearch:'',
         nameSearch:'',
         searched: [],
-        productionSearch:''
-
+        productionSearch:'',
+        otrasles:[]
 
       }
 
 
     },
     created() {
-      
+      this.fetchOtrasl();
      
     },
     methods: {
@@ -335,7 +339,7 @@ id="0518" v-on:click.prevent.self = "fetchAddress0518"
      handleSubmit() {
                    console.log(this.addressSearch + "-----------------------------------------")
                               
-                  this.$http.get("http://78.40.108.19:8085/company/filter", {params:  {
+                  this.$http.get("http://localhost:8085/company/filter", {params:  {
                         regionID: "05",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
@@ -350,7 +354,16 @@ id="0518" v-on:click.prevent.self = "fetchAddress0518"
                               console.log(data)
                               this.addresses = data.body
                         })
-                  }
+                  },
+                  fetchOtrasl() {
+        let api = "http://localhost:8085/company/otrasles"
+        this.$http.get(api).then(function(data){
+          console.log(data)
+          this.otrasles = data.body
+          
+        
+        })
+      }
 
   }
 }   
