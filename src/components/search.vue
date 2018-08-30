@@ -26,16 +26,36 @@
 					
 					<input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change="handleSubmit();" class="classic1" />
 					</v-flex>
-					<div v-for="company in searched" class="single-company"> 
-						<h2>Название:{{company.name}}</h2>
-						<h3>Регион:  {{company.region}}</h3>
-						<h4>БИН:  {{company.bin}}</h4>
-						<h4>Отрасль:  {{company.otrasl}}</h4>
-						<h4>Продукция:  {{company.product}}</h4>
-						<h4>Aдрес:  {{company.address}}</h4>
-						<h4>Почта:  {{company.mail}}</h4>
-						<h4>Телефон:  {{company.phone}}</h4>
-					</div>
+					<br><br> 
+<div> 
+<table class="fixed"> 
+<col width="10%" /> 
+<col width="10%" /> 
+<col width="10%" /> 
+<col width="10%" /> 
+<col width="10%" /> 
+
+
+<tr> 
+<th>Название</th> 
+<th>Регион</th> 
+<th>БИН</th> 
+<th>Отрасль</th> 
+<th>Продукция</th> 
+</tr> 
+<tr v-for="company in searched" class="single-company"> 
+
+<td>{{company.name}}
+<router-link :to="'/company/card/' + company.id"> <h6>Подробнее</h6></router-link></td> 
+<td>{{company.region}}</td> 
+<td>{{company.bin}}</td> 
+<td>{{company.otrasl}}</td> 
+<td class="productiontd">{{company.production}}</td> 
+</tr> 
+
+
+</table> 
+</div> 
 				</div>
             
 			</v-layout>
@@ -118,7 +138,8 @@
 			})
 		},
 		    handleSubmit() {
-		    	 console.log(this.addressSearch + "-----------------------------------------")
+
+		    	 console.log(localStorage.getItem("storageName") + "--------------------------------FFF---------")
 					
 		    	this.$http.get("http://localhost:8085/company/filter", {params:  {
 		    		regionID: this.regionSearch2,
@@ -145,7 +166,24 @@
 <style scoped>
 @import url('https://fonts.googleapis.com/css?family=Play');
 
-
+table { 
+width: 100%; 
+/* border-collapse: collapse; */ 
+} 
+/* Zebra striping */ 
+tr:nth-of-type(odd) { 
+background: #eee; 
+} 
+th { 
+background: #333; 
+color: white; 
+font-weight: bold; 
+} 
+td, th { 
+padding: 6px; 
+border: 1px solid #ccc; 
+text-align: left; 
+}
 .classic1 {
 	background-color: white;
   border: thin #808080;

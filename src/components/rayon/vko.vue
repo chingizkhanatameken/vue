@@ -154,16 +154,36 @@
     
     <input type="search" v-model="productionSearch" placeholder="Продукция"  v-on:change.prevent.self="handleSubmit();" class="classic1" />
     
-<div v-for="company in addresses" class="single-company"> 
-            <h2>Название:{{company.name}}</h2>
-            <h3>Регион:  {{company.region}}</h3>
-            <h4>БИН:  {{company.bin}}</h4>
-            <h4>Отрасль:  {{company.otrasl}}</h4>
-            <h4>Продукция:  {{company.production}}</h4>
-            <h4>Aдрес:  {{company.address}}</h4>
-            <h4>Почта:  {{company.mail}}</h4>
-            <h4>Телефон:  {{company.phone}}</h4>
-          </div>
+ <br><br> 
+<div> 
+<table class="fixed"> 
+<col width="10%" /> 
+<col width="10%" /> 
+<col width="10%" /> 
+<col width="10%" /> 
+<col width="10%" /> 
+
+
+<tr> 
+<th>Название</th> 
+<th>Регион</th> 
+<th>БИН</th> 
+<th>Отрасль</th> 
+<th>Продукция</th> 
+</tr> 
+<tr v-for="company in addresses" class="single-company"> 
+
+<td>{{company.name}}
+<router-link :to="'/company/card/' + company.id"> <h6>Подробнее</h6></router-link></td> 
+<td>{{company.region}}</td> 
+<td>{{company.bin}}</td> 
+<td>{{company.otrasl}}</td> 
+<td class="productiontd">{{company.production}}</td> 
+</tr> 
+
+
+</table> 
+</div> 
 </body>
 </center>
 </html>

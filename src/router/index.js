@@ -23,10 +23,19 @@ import Zhambyl from '@/components/rayon/zhambylskaya'
 import ZKO from '@/components/rayon/zko'
 import Atyrau from '@/components/rayon/atyrauskaya'
 import Kostanay from '@/components/rayon/kostanayskaya'
+import Cards from '@/components/cards'
 Vue.use(Router)
 
 export default new Router({
   routes: [
+  
+    {
+        path: '/company/card/:companyId',
+        name: 'Cards',
+
+        component:Cards,
+        props: true,
+    },
     {
       path: '/',
       name: 'Main',
