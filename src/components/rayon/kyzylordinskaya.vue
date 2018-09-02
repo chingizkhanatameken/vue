@@ -220,7 +220,7 @@
      handleSubmit() {
                    console.log(this.addressSearch + "-----------------------------------------")
                               
-                  this.$http.get("http://78.40.108.19:8085/company/filter", {params:  {
+                  this.$http.get("http://localhost:8085/company/filter", {params:  {
                         regionID: "11",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
@@ -237,7 +237,7 @@
                         })
                   },
                   fetchOtrasl() {
-        let api = "http://78.40.108.19:8085/company/otrasles"
+        let api = "http://localhost:8085/company/otrasles"
         this.$http.get(api).then(function(data){
           console.log(data)
           this.otrasles = data.body

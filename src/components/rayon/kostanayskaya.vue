@@ -358,7 +358,7 @@ id="1012"   v-on:click = "fetchAddress1012(); handleSubmit();"><title>Караб
      handleSubmit() {
                    console.log(this.addressSearch + "-----------------------------------------")
                               
-                  this.$http.get("http://78.40.108.19:8085/company/filter", {params:  {
+                  this.$http.get("http://localhost:8085/company/filter", {params:  {
                         regionID: "10",
                         addressID: this.addressSearch,
                         name: this.nameSearch,
@@ -375,7 +375,7 @@ id="1012"   v-on:click = "fetchAddress1012(); handleSubmit();"><title>Караб
                         })
                   },
                   fetchOtrasl() {
-        let api = "http://78.40.108.19:8085/company/otrasles"
+        let api = "http://localhost:8085/company/otrasles"
         this.$http.get(api).then(function(data){
           console.log(data)
           this.otrasles = data.body
