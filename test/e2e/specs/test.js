@@ -4,7 +4,7 @@
 module.exports = {
   'default e2e tests': function (browser) {
     // automatically uses dev Server port from /config.index.js
-    // default: http://localhost:9000
+    // default: http://78.40.108.19:9000
     // see nightwatch.conf.js
     const devServer = browser.globals.devServerURL
 

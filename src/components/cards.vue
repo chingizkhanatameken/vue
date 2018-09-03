@@ -309,7 +309,7 @@ props: ['companyId'],
 
     methods: {
         fetchCompany() {
-        let api = "http://localhost:8085/company/id/"+ this.companyId
+        let api = "http://78.40.108.19:8085/company/id/"+ this.companyId
         this.$http.get(api).then(function(data){
           console.log(data)
           this.companies = data.body
